@@ -1,3 +1,5 @@
 export type Hola = string
 
-export type KentuckyFriedChicken = React.FC
+export interface Todo { id: number, title: string, completed: boolean }
+
+export type ListOfTodos = Todo[]

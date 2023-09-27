@@ -1,6 +1,6 @@
 module.exports = {
     "env": {
-    "browser": true,
+        "browser": true,
         "es2021": true
     },
     "extends": [
@@ -21,14 +21,16 @@ module.exports = {
         }
     ],
     "parserOptions": {
-        parser: '@typescript-eslint/parser',
-        project:  ['./tsconfig.json', './tsconfig.node.json'],
+        project: './tsconfig.json',
         tsconfigRootDir: __dirname,
+        sourceType: 'module',
     },
     "plugins": [
         "react"
     ],
     "rules": {
-        "react/react-in-jsx-scope": "off"
-    }
+        "react/react-in-jsx-scope": "off",
+        "react/prop-types": 'off'
+    },
+    ignorePatterns: ['.eslintrc.cjs']
 }
