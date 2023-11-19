@@ -1,9 +1,16 @@
 {
   "devDependencies": {
+    "@types/morgan": "^1.9.7",
     "@types/node": "^20.6.5",
     "ts-node-dev": "^2.0.0"
   },
   "dependencies": {
+    "@types/cors": "^2.8.15",
+    "@types/express": "^4.17.20",
+    "cors": "^2.8.5",
+    "express": "^4.18.2",
+    "morgan": "^1.10.0",
+    "pg": "^8.11.3",
     "reflect-metadata": "^0.1.13",
     "typeorm": "^0.3.17",
     "typescript": "^5.2.2"
@@ -13,7 +20,9 @@
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "dev": "ts-node-dev --respawn src/index.ts"
+    "dev": "ts-node-dev --respawn src/index.ts",
+    "build": "tsc",
+    "start": "node dist/index.js"
   },
   "keywords": [],
   "author": "",
