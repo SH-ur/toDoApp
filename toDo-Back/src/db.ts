@@ -1,13 +1,16 @@
-import {DataSource} from 'typeorm';
-const {POSTGRES_PASS} = process.env;
+require('dotenv').config();
 
-export  const AppDataSource = new DataSource({
+import {DataSource} from 'typeorm';
+import { Task } from './Entities/Task';
+
+export const AppDataSource = new DataSource({
     type: 'postgres',
     host: 'localhost',
 username: 'postgres',
-password: POSTGRES_PASS,
+password: 'OPformat',
 port: 5432,
 database: 'todolist',
-entities: [],
-logging: true
+entities: [Task],
+logging: true,
+synchronize: true
 })

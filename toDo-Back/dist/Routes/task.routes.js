@@ -8,22 +8,21 @@ var __awaiter = (this && this.__awaiter) || function (thisArg, _arguments, P, ge
         step((generator = generator.apply(thisArg, _arguments || [])).next());
     });
 };
-var __importDefault = (this && this.__importDefault) || function (mod) {
-    return (mod && mod.__esModule) ? mod : { "default": mod };
-};
 Object.defineProperty(exports, "__esModule", { value: true });
-require("reflect-metadata");
-const db_1 = require("./db");
-const app_1 = __importDefault(require("./app"));
-function main() {
-    return __awaiter(this, void 0, void 0, function* () {
-        try {
-            yield db_1.AppDataSource.initialize();
-            app_1.default.listen(3000);
-            console.log("Server is running on port ", 3000);
+const express_1 = require("express");
+const createTasks_1 = require("../Controller/createTasks");
+const router = (0, express_1.Router)();
+router.post('/tasking', (req, res) => __awaiter(void 0, void 0, void 0, function* () {
+    try {
+        const { title, description } = req.body;
+        const tasks = yield (0, createTasks_1.createTasks)({ title, description });
+        if (tasks != undefined) {
+            res.status(200).json(tasks);
         }
-        catch (error) {
-            console.log(error);
-        }
-    });
-}
+    }
+    catch (error) {
+        res.status(400).json({ error: error });
+        console.log('Fallo en la ruta');
+    }
+}));
+exports.default = router;
