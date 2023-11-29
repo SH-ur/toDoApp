@@ -19,11 +19,13 @@ function main() {
     return __awaiter(this, void 0, void 0, function* () {
         try {
             yield db_1.AppDataSource.initialize();
-            app_1.default.listen(3000);
-            console.log("Server is running on port ", 3000);
+            app_1.default.listen(3000, () => {
+                console.log("Server is running on port ", 3000);
+            });
         }
         catch (error) {
             console.log(error);
         }
     });
 }
+main();
