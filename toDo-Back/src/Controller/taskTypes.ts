@@ -8,4 +8,6 @@ interface Task{
 }
 export type createTask = {title: string | undefined | null, description: string| undefined | null}
 
+export type askedTask = Array<Task> | { message: string}| {error: any} | {};
+
 export default Task
