@@ -8,23 +8,28 @@ export const createTasks = async (taskInfo: createTask) => {
     //Creamos la instancia con la entidad
     const tasks = new Task();
 
-    //Condicional para asignar los datos y guardarlos en la Entidad
-    if (title != null && description != null) {
-      tasks.title = title;
-      tasks.description = description;
-      await tasks.save();
-    }
-console.log(tasks);
-    //Esto es para verificar que se guardó en la base de datos
+    if(title == null || description == null) return 'No se puede hacer nada sin datos';
+
     const searching = Task.find({
       where: {
         title: `${title}`,
       },
     });
-    
-    if ((await searching).length > 0) {
+
+    //Comprobando replicas
+    if((await searching).length >= 1) return 'Ya existe una Task así';
+    //Condicional para asignar los datos y guardarlos en la Entidad
+    if(typeof title == 'string' && typeof description == 'string'){
+      tasks.title = title;
+      tasks.description = description;
+      await tasks.save();
+    }
+      
+  
+console.log(tasks);
+
       return searching;
-    } 
+    
   } catch (error: any) {
     console.log('La pucha, el error fue en controller: ' + error);
     throw new Error(error?.message);
