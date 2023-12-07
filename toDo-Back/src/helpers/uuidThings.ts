@@ -1,0 +1,1 @@
+export const validatingUUID = /^[a-z,0-9,-]{36,36}$/;
