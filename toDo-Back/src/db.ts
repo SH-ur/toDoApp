@@ -8,7 +8,7 @@ export const AppDataSource = new DataSource({
     host: 'localhost',
 username: 'postgres',
 password: 'OPformat',
-port: 5432,
+port: 3042,
 database: 'todolist',
 entities: [Task],
 logging: true,
