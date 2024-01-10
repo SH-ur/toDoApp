@@ -59,7 +59,7 @@ router
         if (validatingUUID.test(id)) {
           const deleteTheTask = await delTasks(id);
           console.log(deleteTheTask); //Ok, esto cumple pero no devuelve nada
-          res.status(204).json(`The task with the id ${id} was deleted`);
+          res.status(200).json(deleteTheTask);
         } else
           res
             .status(400)

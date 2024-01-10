@@ -28,7 +28,7 @@ export const createTasks = async (taskInfo: createTask) => {
   
 console.log(tasks);
 
-      return searching;
+      return tasks;
     
   } catch (error: any) {
     console.log('La pucha, el error fue en controller: ' + error);
