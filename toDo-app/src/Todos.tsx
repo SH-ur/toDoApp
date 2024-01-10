@@ -1,6 +1,6 @@
 import { Todo } from './Todo'
 import { type ListOfTodos } from './types/types'
-
+import * as React from 'react'
 interface Props { todos: ListOfTodos }
 export const Todos: React.FC<Props> = ({ todos }) => {
   return (
